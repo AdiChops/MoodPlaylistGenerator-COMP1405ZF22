@@ -11,7 +11,7 @@ auth_manager = SpotifyClientCredentials()
 # sp = spotipy.Spotify(auth_manager=auth_manager)
 
 
-token = util.prompt_for_user_token("legitadi",'user-modify-public',client_id=os.getenv("SPOTIPY_CLIENT_ID"),client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),redirect_uri='http://localhost:8080/callback') 
+token = util.prompt_for_user_token("<username>",'user-modify-public',client_id=os.getenv("SPOTIPY_CLIENT_ID"),client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),redirect_uri='http://localhost:8080/callback') 
 sp = spotipy.Spotify(auth=token)
 
 playlist_name = f"Playlist Mood Test"
@@ -24,11 +24,9 @@ def GetPlaylistID(username, playlist_name):
             return playlist['id']
     return None
 
-sp.user_playlist_create("legitadi", name=playlist_name)
+sp.user_playlist_create("<username>", name=playlist_name)
 
-sp.playlist_add_items(GetPlaylistID("legitadi", "Playlist Mood Test"), list_of_tracks)
-
-sp.
+sp.playlist_add_items(GetPlaylistID("<username>", "Playlist Mood Test"), list_of_tracks)
 
 # Order to determine mood
 # ORDER:
